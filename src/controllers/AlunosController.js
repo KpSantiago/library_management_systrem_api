@@ -34,9 +34,9 @@ module.exports = {
 
         }
 
-        const aluno = await Aluno.findAll({ where: { email } });
 
-        if (aluno.length > 0) {
+
+        if (await Aluno.findAll({ where: { email } })) {
             return res.status(401).json({ error: true, message: 'Usuário já existe, tente novamente.' });
         }
 

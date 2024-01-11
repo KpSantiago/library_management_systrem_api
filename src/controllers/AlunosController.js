@@ -40,7 +40,7 @@ module.exports = {
             return res.status(401).json({ error: true, message: 'Usuário já existe, tente novamente.' });
         }
 
-        const salt = await bcrypt.salt(12);
+        const salt = await bcrypt.genSalt(12);
         const senhaHash = await bcrypt.hash(senha, salt)
 
         try {

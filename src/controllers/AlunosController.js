@@ -34,6 +34,15 @@ module.exports = {
 
         }
 
+        const aluno = await Aluno.findAll({ where: { email } });
+
+        if (aluno.length > 0) {
+            return res.status(401).json({ error: true, message: 'Usuário já existe, tente novamente.' });
+        }
+
+        const salt = await bcrypt.salt(12);
+        const senhaHash = await bcrypt.hash(senha, salt)
+
         try {
             const alunos = await Aluno.create({ nome, senha: senhaHash, email });
             return res.status(200).json({

@@ -4,8 +4,7 @@
   "description": "",
   "main": "src/index.js",
   "scripts": {
-    "start": "nodemon src/index.js",
-    "verce-build": "yarn sequelize db:migrate"
+    "start": "nodemon src/index.js"
   },
   "keywords": [],
   "author": "",

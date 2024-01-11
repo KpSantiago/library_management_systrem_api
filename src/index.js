@@ -3,12 +3,12 @@ const cookieParser = require('cookie-parser');
 const cors = require('cors');
 const routes = require('./routes');
 const path = require('path');
-
+require('dotenv').config()
 const app = express();
 
 require('./database');
 
-app.listen(3333, () => console.log('listen on port 3333'));
+app.listen(process.env.PORT | 3333, () => console.log('listen on port 3333'));
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));

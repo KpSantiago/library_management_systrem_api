@@ -33,13 +33,6 @@ module.exports = {
             return res.status(401).json({ error: true, message: 'Dados inválidos (nome, email ou senha).' })
 
         }
-        const hasEmail = await Aluno.findAll({ where: { email } })
-        if (hasEmail.length > 0) {
-            return res.status(401).json({ error: true, message: 'Email já existe!' })
-        }
-
-        let salt = await bcrypt.genSalt(12)
-        let senhaHash = await bcrypt.hash(senha, salt);
 
         try {
             const alunos = await Aluno.create({ nome, senha: senhaHash, email });
@@ -58,21 +51,6 @@ module.exports = {
         if (!email || !senha) {
             return res.status(401).json({ error: true, message: 'Email ou senha inválidos.' });
         }
-
-        const aluno = await Aluno.findAll({ where: { email } });
-
-
-        if (aluno.length == 0) {
-            return res.status(401).json({ error: true, message: 'Aluno não encontrado, tente novamente.' });
-        }
-
-        if (aluno.length > 0) {
-            const senhaHash = await bcrypt.compare(senha, aluno[0].senha)
-            if (!senhaHash) {
-                return res.status(401).json({ error: true, message: 'Senha incorreta!' });
-            }
-        }
-
 
         try {
             const secret = process.env.SECRET;

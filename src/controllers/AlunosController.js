@@ -52,6 +52,21 @@ module.exports = {
             return res.status(401).json({ error: true, message: 'Email ou senha inválidos.' });
         }
 
+        const aluno = await Aluno.findAll({ where: { email } });
+
+
+        if (aluno.length == 0) {
+            return res.status(401).json({ error: true, message: 'Aluno não encontrado, tente novamente.' });
+        }
+
+        if (aluno.length > 0) {
+            const senhaHash = await bcrypt.compare(senha, aluno[0].senha)
+            if (!senhaHash) {
+                return res.status(401).json({ error: true, message: 'Senha incorreta!' });
+            }
+        }
+
+
         try {
             const secret = process.env.SECRET;
             const token = jwt.sign({

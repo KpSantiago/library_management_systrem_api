@@ -7,9 +7,6 @@
     "start": "src/index.js",
     "verce-build": "yarn sequelize db:migrate"
   },
-  "engines": {
-    "node": "18"
-  },
   "keywords": [],
   "author": "",
   "license": "ISC",

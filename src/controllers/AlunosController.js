@@ -64,7 +64,7 @@ module.exports = {
         const aluno = await Aluno.findAll({ where: { email } });
 
 
-        if (aluno.length == 0) {
+        if (aluno.length == 0 || !aluno) {
             return res.status(401).json({ error: true, message: 'Aluno não encontrado, tente novamente.' });
         }
 

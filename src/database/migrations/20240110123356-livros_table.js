@@ -25,15 +25,15 @@ module.exports = {
         allowNull: true,
       },
       data_devolucao: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.DATE,
         allowNull: true,
       },
       data_devolucao_estimada: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.DATE,
         allowNull: true,
       },
       dias_para_devolucao: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.DATE,
         allowNull: false,
         defaultValue: 15
       },

@@ -8,7 +8,6 @@ class AutorLivro extends Model {
         }, { sequelize })
     }
     static associete(models) {
-        console.log(models)
         this.belongsToMany(models.Livro, { through: models.AutorLivro, foreignKey: 'autor_id', as: 'livro' });
         this.belongsToMany(models.Autor, { through: models.AutorLivro, foreignKey: 'livro_id', as: 'autor' });
     }

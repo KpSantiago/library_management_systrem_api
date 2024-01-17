@@ -11,7 +11,7 @@ class Autor extends Model {
             })
     }
     static associete(models) {
-        this.belongsToMany(models.Livro, { through: 'autores_livros', foreignKey: 'autor_id', as: 'livro' })
+        this.belongsToMany(models.Livro, { through: models.AutorLivro, foreignKey: 'autor_id', as: 'livro' });
     }
 }
 

@@ -15,7 +15,7 @@ class Livro extends Model {
         }, { sequelize })
     }
     static associete(models) {
-        this.belongsToMany(models.Autor, { through: 'autor_livros', foreignKey: 'livro_id', as: 'autor' });
+        this.belongsToMany(models.Autor, { through: models.AutorLivro, foreignKey: 'livro_id', as: 'autor' });
         this.hasOne(models.Aluno, { foreignKey: 'livro_id', as: 'aluno' })
     }
 }

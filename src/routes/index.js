@@ -4,7 +4,8 @@ const LivrosControllers = require('../controllers/LivrosControllers');
 const AutoresControllers = require('../controllers/AutoresController');
 const AlunosController = require('../controllers/AlunosController');
 
-const upload = require('../images/config')
+const upload = require('../images/config');
+const AutorLivro = require('../models/AutorLivro');
 
 const router = express.Router();
 

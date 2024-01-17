@@ -1,4 +1,4 @@
-const [DataTypes, Model] = require('sequelize');
+const { DataTypes, Model } = require('sequelize');
 
 class AutorLivro extends Model {
     static init(sequelize) {
@@ -8,5 +8,4 @@ class AutorLivro extends Model {
         }, { sequelize })
     }
 }
-
 module.exports = AutorLivro;

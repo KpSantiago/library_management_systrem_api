@@ -15,5 +15,21 @@ module.exports = {
                 erro: err
             })
         }
+    },
+    async postAutores(req, res) {
+        const { nome } = req.body
+
+        try {
+            const autores = await Autor.create({ nome })
+            return res.status(200).json({
+                msg: 'Autor adicionado!'
+            })
+        } catch (error) {
+            return res.status(400).json({
+                msg: 'ocorreu um erro insperado',
+                error
+            })
+        }
+
     }
 }

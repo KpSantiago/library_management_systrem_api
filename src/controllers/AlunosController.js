@@ -122,4 +122,5 @@ module.exports = {
             return res.status(400).json({ message: 'ocorreu um erro inesperado', erro: err })
         }
     }
+    
 }

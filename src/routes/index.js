@@ -14,6 +14,7 @@ router.put('/api/bookPurchased/:id', LivrosControllers.bookPurchased);
 router.post('/api/livros', upload.single('image'), LivrosControllers.addimg)
 
 router.get('/api/autores', AutoresControllers.getAutores);
+router.post('/api/autores', AutoresControllers.postAutores);
 
 router.get('/api/alunos', AlunosController.getAlunos);
 router.get('/api/alunos/:id', AlunosController.getOneAluno);

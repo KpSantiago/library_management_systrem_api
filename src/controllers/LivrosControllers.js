@@ -15,7 +15,7 @@ module.exports = {
             })
         } catch (err) {
             return res.json({
-                error: 'deu erro boy',
+                error: 'ocorreu um erro inesperado',
                 erro: err
             })
         }
@@ -35,7 +35,7 @@ module.exports = {
             })
         } catch (err) {
             return res.json({
-                error: 'deu erro boy',
+                error: 'ocorreu um erro inesperado',
                 erro: err
             })
         }

@@ -14,6 +14,7 @@ Aluno.init(connection)
 AutorLivro.init(connection);
 
 Livro.associete(connection.models);
+AutorLivro.associete(connection.models);
 Autor.associete(connection.models);
 Aluno.associete(connection.models);
 
